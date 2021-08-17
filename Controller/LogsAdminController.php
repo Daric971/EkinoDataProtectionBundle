@@ -76,7 +76,7 @@ class LogsAdminController extends Controller
     /**
      * @param string $content
      *
-     * @return array
+     * @return array<array-key,object>
      */
     private function getDecryptedResults(string $content): array
     {
@@ -96,8 +96,6 @@ class LogsAdminController extends Controller
 
     /**
      * @param string $content
-     *
-     * @return array
      */
     private function getEncryptedResult(string $content): array
     {

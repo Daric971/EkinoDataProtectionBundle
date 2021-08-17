@@ -40,15 +40,16 @@ class GdprProcessor implements ProcessorInterface
     }
 
     /**
-     * @param array $record
+     * @param array<non-empty-array> $record
      *
-     * @return array
+     * @return array<non-empty-array>
      */
-    public function __invoke(array $record)
+    public function __invoke(array $record): array
     {
+        /** @var string $val */
         foreach ($record['context'] as $key => &$val) {
             if (preg_match('#^private_#', (string) $key)) {
-                $val = $this->encryptor->encrypt(json_encode($val));
+                $val = $this->encryptor->encrypt((string) json_encode($val));
             }
         }
 

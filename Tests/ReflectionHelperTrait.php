@@ -17,10 +17,11 @@ trait ReflectionHelperTrait
 {
     /**
      * @param mixed $object
+     * @param array<non-empty-array> $parameters
      *
      * @return bool|mixed
      */
-    public function invokeMethod($object, string $methodName, array $parameters = [])
+    public function invokeMethod($object, string $methodName, array $parameters = []): mixed
     {
         try {
             $method = new \ReflectionMethod($object, $methodName);

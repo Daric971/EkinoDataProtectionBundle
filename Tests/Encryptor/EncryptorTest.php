@@ -85,6 +85,15 @@ class EncryptorTest extends TestCase
 
 namespace Ekino\DataProtectionBundle\Encryptor;
 
-function openssl_encrypt($data, $method, $key, $options, $iv) {
+/**
+ * @param string $data
+ * @param string $method
+ * @param string $keyÒ
+ * @param string $iv
+ *
+ * @return bool|string
+ */
+function openssl_encrypt(string $data, string $method, string $key, $options, string $iv)
+{
     return \Ekino\DataProtectionBundle\Tests\Encryptor\EncryptorTest::$encryptData ? \openssl_encrypt($data, $method, $key, $options, $iv) : false;
 }

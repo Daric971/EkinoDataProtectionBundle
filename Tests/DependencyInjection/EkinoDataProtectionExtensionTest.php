@@ -47,8 +47,8 @@ class EkinoDataProtectionExtensionTest extends TestCase
     /**
      * Tests load with invalid configs.
      *
-     * @param array  $configs
-     * @param string $exceptionMessage
+     * @param array<non-empty-array> $configs
+     * @param string                 $exceptionMessage
      *
      * @dataProvider getInvalidConfigs
      */

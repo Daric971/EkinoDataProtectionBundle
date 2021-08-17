@@ -52,7 +52,7 @@ final class EncryptCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Encrypt a given text (like a password)')
             ->addArgument('text', null, 'Text to encrypt')
@@ -75,6 +75,7 @@ final class EncryptCommand extends Command
             throw new \InvalidArgumentException('Secret must not be empty');
         }
 
+        /** @var string $method */
         $method = $input->getOption('method');
 
         if (!\in_array($method, openssl_get_cipher_methods())) {
